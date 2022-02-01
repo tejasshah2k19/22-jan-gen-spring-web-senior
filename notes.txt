@@ -1,0 +1,32 @@
+1) maven - webapp 
+
+2) servlet-api.jar
+
+3) core bean context el - #webmvc
+
+4) tomcat ---> [ FrontController ]DispatacherServlet ---> ioc container    [ init-param ] 
+
+5) WEbXmlApplicationContext -->  spring.xml [ WEB-INF]  
+
+6) spring.xml 
+		xsd -> bean context mvc 
+		
+7)  <mvc:annotation-driven/> 
+	<context:component-scan base-package="com"/>
+	
+8) jsp --> WEB-INF 
+
+	spring.xml	=> InternalViewResolver ==> 
+						prefix 
+						suffix 
+						
+------------------------------------------------------------------------------------------
+
+create controller -->	
+		src -> main -> java --->  com --> controller 
+				UserController 
+		
+
+
+	
+	 
