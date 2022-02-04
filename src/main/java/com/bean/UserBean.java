@@ -1,11 +1,14 @@
 package com.bean;
-
+ 
 public class UserBean {
 
 	private int userId;
 	private String firstName;
 	private String password, email;
-
+	boolean candidate;
+	
+	
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -38,4 +41,13 @@ public class UserBean {
 		this.email = email;
 	}
 
+	public boolean isCandidate() {
+		return candidate;
+	}
+
+	public void setCandidate(boolean candidate) {
+		this.candidate = candidate;
+	}
+
+	
 }

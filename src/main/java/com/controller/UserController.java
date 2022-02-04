@@ -1,14 +1,21 @@
 package com.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bean.UserBean;
+import com.dao.UserDao;
 
 @Controller
 public class UserController {
+
+	@Autowired
+	UserDao userDao;
+	// delete
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 //	@RequestMapping("/signup")//GET 
@@ -23,10 +30,38 @@ public class UserController {
 		// bean
 		// bean.set
 		// dao.insert(bean)
+
+		int userId = (int) (Math.random() * 100000);
+		user.setUserId(userId);
+
+		userDao.insertUser(user);
 		System.out.println("Save user () ");
 		System.out.println(user.getFirstName());
 		System.out.println(user.getEmail());
-		model.addAttribute("user", user);
-		return "Home";
+		System.out.println(user.isCandidate());
+		return "Login";
 	}
+
+	@PostMapping("/authenticate")
+	public String authenticate(UserBean user, Model model) {
+		// email
+		// password
+
+		// candidate --> status
+		// citizen --> vote | check Vote
+
+		UserBean loginUser = userDao.authenticate(user.getEmail(), user.getPassword());
+
+		if (loginUser == null) {
+			// inValid
+
+			model.addAttribute("error", "Invalid credentials..");
+			return "Login";
+		} else {
+			// valid
+
+			return "Home";
+		}
+	}
+
 }

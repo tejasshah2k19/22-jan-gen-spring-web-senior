@@ -27,6 +27,9 @@
 	</bean>
 	
 	
+<!-- 	<bean id="userDao" class="com.dao.UserDao">
+	</bean> -->
+	
 </beans>
 
  

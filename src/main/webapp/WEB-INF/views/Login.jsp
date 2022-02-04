@@ -7,20 +7,20 @@
 </head>
 <body>
 
-	<h2>Signup</h2>
+
+
+	<h2>Login</h2>
 
 
 
-	<form action="saveuser" method="post">
+	<form action="authenticate" method="post">
 
-		FirstName : <input type="text" name="firstName" /> <br> <BR>
+
 		Email : <input type="text" name="email" /><br> <BR>
 		Password : <input type="text" name="password" /> <br> <BR>
-		IsCandidate : <input type="checkbox" name="candidate" value="true"> 
-		<input type="submit" value="Signup" />
+		<input type="submit" value="Login" />
 
 
 	</form>
-
 </body>
 </html>
