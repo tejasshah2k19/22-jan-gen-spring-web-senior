@@ -7,21 +7,11 @@
 </head>
 <body>
 
-
-
-	<h2>Login</h2>
-
-
-
-	<form action="authenticate" method="post">
-
-
-		Email : <input type="text" name="email" /><br> <BR>
-		Password : <input type="text" name="password" /> <br> <BR>
-		<input type="submit" value="Login" />
-
-
-	</form>
-	${error }
+	<h2>Welcome Citizen , ${user.firstName }</h2>
+	<br><Br>
+	
+	<a href="givevote">Give Vote</a>|
+	<a href="ddsds">Vote Status</a> |
+	<a href="logout">Logout</a>
 </body>
 </html>

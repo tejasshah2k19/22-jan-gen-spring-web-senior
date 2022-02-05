@@ -6,9 +6,19 @@ public class UserBean {
 	private String firstName;
 	private String password, email;
 	boolean candidate;
+	boolean voted;
+	
+
 	
 	
-	
+	public boolean isVoted() {
+		return voted;
+	}
+
+	public void setVoted(boolean voted) {
+		this.voted = voted;
+	}
+
 	public int getUserId() {
 		return userId;
 	}

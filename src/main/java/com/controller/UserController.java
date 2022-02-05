@@ -3,6 +3,7 @@ package com.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,12 +57,29 @@ public class UserController {
 			// inValid
 
 			model.addAttribute("error", "Invalid credentials..");
-			return "Login";
+			return "Login";// forward
 		} else {
 			// valid
 
-			return "Home";
+			model.addAttribute("user", loginUser); // request.setAttribute()
+			if (loginUser.isCandidate()) {
+				return "CandidateHome";
+			} else {
+				return "CitizenHome";
+			}
+
 		}
 	}
 
+	@GetMapping("/logout")
+	public String logout() {
+//		return "Login";//forward -> data sent 
+		return "redirect:/login";  // destroy the current request 
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "Login";
+	}
+	
 }

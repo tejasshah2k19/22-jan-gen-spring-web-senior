@@ -49,6 +49,11 @@ task :-
 		y		3
 	
 	1) signup
+	2) login 
+	3) login -> redirect to dashboard 
+	
+	4) Citizen give vote to candidate -> 1 time 
+	5) citizen can check their vote status 
 	
 				
 			 		
