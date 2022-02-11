@@ -45,8 +45,8 @@ task :-
 				isVoted
 	
 	CandidateVotes ->
-		x		2
-		y		3
+		12345		0
+		12359		0
 	
 	1) signup
 	2) login 
