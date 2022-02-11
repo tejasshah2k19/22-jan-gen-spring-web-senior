@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,16 +42,20 @@ public class UserController {
 		System.out.println(user.getFirstName());
 		System.out.println(user.getEmail());
 		System.out.println(user.isCandidate());
+		if (user.isCandidate()) {
+			userDao.voteDao.addVote(user.getUserId());// 1st time as candidate --> voute = 0
+		}
 		return "Login";
 	}
 
 	@PostMapping("/authenticate")
-	public String authenticate(UserBean user, Model model) {
+	public String authenticate(UserBean user, Model model, HttpSession session) {
 		// email
 		// password
 
 		// candidate --> status
 		// citizen --> vote | check Vote
+		// session -> userId
 
 		UserBean loginUser = userDao.authenticate(user.getEmail(), user.getPassword());
 
@@ -60,7 +66,7 @@ public class UserController {
 			return "Login";// forward
 		} else {
 			// valid
-
+			session.setAttribute("userId", loginUser.getUserId());
 			model.addAttribute("user", loginUser); // request.setAttribute()
 			if (loginUser.isCandidate()) {
 				return "CandidateHome";
@@ -72,14 +78,15 @@ public class UserController {
 	}
 
 	@GetMapping("/logout")
-	public String logout() {
+	public String logout(HttpSession session) {
+		session.invalidate();
 //		return "Login";//forward -> data sent 
-		return "redirect:/login";  // destroy the current request 
+		return "redirect:/login"; // destroy the current request
 	}
-	
+
 	@GetMapping("/login")
 	public String login() {
 		return "Login";
 	}
-	
+
 }

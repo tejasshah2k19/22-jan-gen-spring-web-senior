@@ -2,6 +2,8 @@ package com.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,11 @@ public class VoteController {
 	}
 
 	@GetMapping("/savevote")
-	public String saveVote(@RequestParam("vote") int candidateId) {
+	public String saveVote(@RequestParam("vote") int candidateId,HttpSession session) {
+		
+		int userId = (Integer)session.getAttribute("userId");
+		userDao.updateVoteStatus(userId);
+		
 		System.out.println("vote given to => " + candidateId);
 		//
 		return "";
