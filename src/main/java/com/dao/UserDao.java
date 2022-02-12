@@ -31,7 +31,7 @@ public class UserDao {
 		user1.setFirstName("ram");
 		user1.setPassword("ram");
 
-		 voteDao.addVote(user1.getUserId());// 123
+		voteDao.addVote(user1.getUserId());// 123
 
 		UserBean user2 = new UserBean();
 		user2.setUserId(12343);
@@ -49,7 +49,7 @@ public class UserDao {
 
 		UserBean user4 = new UserBean();
 		user4.setUserId(12945);
-		 voteDao.addVote(user4.getUserId());// 123
+		voteDao.addVote(user4.getUserId());// 123
 		user4.setCandidate(true);
 		user4.setEmail("superman@gmail.com");
 		user4.setFirstName("superman");
@@ -100,4 +100,24 @@ public class UserDao {
 		return candidates;
 	}
 
+	public boolean isCandidate(int userId) {
+		for (UserBean user : users) {
+			if (user.getUserId() == userId) {
+				return user.isCandidate();
+			}
+		}
+
+		return false;
+	}
+
+	public boolean isVoted(int userId) {
+
+		for (UserBean user : users) {
+			if (user.getUserId() == userId) {
+				return user.isVoted();
+			}
+		}
+
+		return false;
+	}
 }

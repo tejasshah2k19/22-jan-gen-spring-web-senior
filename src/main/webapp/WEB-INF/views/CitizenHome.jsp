@@ -13,5 +13,8 @@
 	<a href="givevote">Give Vote</a>|
 	<a href="ddsds">Vote Status</a> |
 	<a href="logout">Logout</a>
+
+<br>
+${msg }
 </body>
 </html>

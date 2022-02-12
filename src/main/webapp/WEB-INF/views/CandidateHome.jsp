@@ -9,8 +9,14 @@
 	<h2>Welcome Candidate , ${user.firstName }</h2>
 	<br>
 
+<a href="votecount">Vote Count</a> |
+	<a href="givevote">Give Vote</a>|
+
+<br>
 	
 	<a href="logout">Logout</a>
 
+<br>
+${msg }
 </body>
 </html>

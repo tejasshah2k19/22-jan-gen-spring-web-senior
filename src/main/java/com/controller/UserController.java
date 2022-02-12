@@ -76,6 +76,11 @@ public class UserController {
 
 		}
 	}
+	
+	@GetMapping("/candidatehome")
+	public String candidateHome() {
+		return "CandidateHome";
+	}
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {

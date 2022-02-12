@@ -21,6 +21,8 @@
 
 
 	</form>
+	<br>
+	<a href="login">Login</a>
 
 </body>
 </html>

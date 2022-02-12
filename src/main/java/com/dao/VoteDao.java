@@ -8,12 +8,14 @@ import org.springframework.stereotype.Component;
 public class VoteDao {
 
 	public   HashMap<Integer, Integer> voteCounter = new HashMap<Integer, Integer>();
-	// 123 => 0
+	// 123[ram] => 10
 	// 456 => 0
+	//
 
+	//userId --> candidateId 
 	public void addVote(int userId) {
 		if (voteCounter.get(userId) == null) {
-			voteCounter.put(userId, 0);
+			voteCounter.put(userId, 0);//first time 
 		} else {
 			int oldVote = voteCounter.get(userId);
 			int newVote = oldVote + 1;
