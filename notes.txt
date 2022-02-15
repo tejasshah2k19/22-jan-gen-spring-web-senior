@@ -58,13 +58,32 @@ task :-
 				
 			 		
 	 
+------------------------------------------------------------------------------------------
+spring web + database 
+
+	1) dep.  jar lib 
+			1.1) spring jdbc 
+			1.2) driver -  pg 
+	
+	2)  spring.xml - configure 
+				DriverManager DataSource  
+				JdbcTemplate 
+				 
+			 
+	 
+------------------------------------------------------------------------------------------
+CRUD :- customer 
+	customerid pk auto
+	firstname
+	email
+	password
+	balance 	 
 	 
 	 
-	 
-	 
-	 
-	 
-	 
+	1) create customer table in pg 
+	2) create customer bean 
+	3) create customer dao -- @Repository 
+	4) create customer controller  
 	 
 	 
 	 
