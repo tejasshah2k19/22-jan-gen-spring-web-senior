@@ -23,6 +23,7 @@
 			<td>Email</td>
 			<td>Password</td>
 			<td>Balance</td>
+			<td>Action</td>
 		</tr>
 		<c:forEach items="${customers}" var="c">
 			<tr>
@@ -31,7 +32,11 @@
 				<td>${c.email}</td>
 				<td>${c.password}</td>
 				<td>${c.balance}</td>
-
+				<td><a href="deletecustomer?customerId=${c.customerId}">Delete</a>
+				
+				|
+				<a href="editcustomer?customerId=${c.customerId}">Edit</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

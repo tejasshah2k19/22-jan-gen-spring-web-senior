@@ -30,4 +30,28 @@ public class CustomerDao {
 				new BeanPropertyRowMapper<CustomerBean>(CustomerBean.class));
 		return customers;
 	}
+
+	public void deleteCustomer(int customerId) {
+		stmt.update("delete from customer where customerid = ?", customerId);
+	}
+
+	public CustomerBean getCustomerById(int customerId) {
+		CustomerBean customerBean = stmt.queryForObject("select * from customer where customerid = ? ",
+				new BeanPropertyRowMapper<CustomerBean>(CustomerBean.class), new Object[] { customerId });
+		return customerBean;
+	}
+
+	public boolean updateCustomer(CustomerBean customer) {
+
+		try {
+			stmt.update(
+					"update customer set firstname = ? , email = ? , password = ? , balance = ? where customerid = ?",
+					customer.getFirstName(), customer.getEmail(), customer.getPassword(), customer.getBalance(),
+					customer.getCustomerId());
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }
