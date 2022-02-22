@@ -46,6 +46,12 @@
 
 	<!-- <bean id="userDao" class="com.dao.UserDao"> </bean> -->
 
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="1000000000"></property>
+
+	</bean>
 </beans>
 
  
