@@ -54,4 +54,19 @@ public class CustomerDao {
 		}
 	}
 
+	public CustomerBean authenticate(String email, String password) {
+		CustomerBean dbCust = null;
+
+		try {
+
+			dbCust = stmt.queryForObject("select * from customer where email = ? and password = ?",
+					new BeanPropertyRowMapper<CustomerBean>(CustomerBean.class), new Object[] { email, password });
+
+		} catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+		}
+
+		return dbCust;
+	}
+
 }
