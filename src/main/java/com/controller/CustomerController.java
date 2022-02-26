@@ -80,18 +80,25 @@ public class CustomerController {
 		CustomerBean currentCustomer = (CustomerBean)session.getAttribute("customer");
 		
 		
-		File f = new File("D:\\Tejas Shah\\Dropbox\\Tejas Shah's Workplace\\work\\22-jan-gen-spring-web-senior\\src\\main\\webapp\\images\\",currentCustomer.getCustomerId()+"");
+		File f = new File("D:\\Tejas Shah\\Dropbox\\Tejas Shah's Workplace\\work\\22-jan-gen-spring-web-senior\\src\\main\\webapp\\resources\\images\\",currentCustomer.getCustomerId()+"");
 		f.mkdir();// if present then return false 
 					//if not present then create and return true 
 		
 		
 		// save
-		String path = "D:\\Tejas Shah\\Dropbox\\Tejas Shah's Workplace\\work\\22-jan-gen-spring-web-senior\\src\\main\\webapp\\images\\"+currentCustomer.getCustomerId()+"\\";
+		String path = "D:\\Tejas Shah\\Dropbox\\Tejas Shah's Workplace\\work\\22-jan-gen-spring-web-senior\\src\\main\\webapp\\resources\\images\\"+currentCustomer.getCustomerId()+"\\";
 
 
 		
 		fileUploadService.uploadFile(multiPartFile, path);
-
+		//customerDao.addPic(customerId,path); 
+		//resources/images/customerId/imageName 
+		//user_pic -> table 
+		//userId, url 
+		//7 , resources/images/7/imageName1
+		//7 , resources/images/7/imageName2
+		
+		
 		return "CustomerHome";
 	}
 
@@ -119,7 +126,7 @@ public class CustomerController {
 	public String viewMyProfile(HttpSession session,Model model) {
 		CustomerBean currentCustomer = (CustomerBean)session.getAttribute("customer");
 		
-		File f = new File("D:\\Tejas Shah\\Dropbox\\Tejas Shah's Workplace\\work\\22-jan-gen-spring-web-senior\\src\\main\\webapp\\images\\",currentCustomer.getCustomerId()+"");
+		File f = new File("D:\\Tejas Shah\\Dropbox\\Tejas Shah's Workplace\\work\\22-jan-gen-spring-web-senior\\src\\main\\webapp\\resources\\images\\",currentCustomer.getCustomerId()+"");
 		String allFileNames[] = f.list(); 
 		model.addAttribute("fileNames",allFileNames);
 		

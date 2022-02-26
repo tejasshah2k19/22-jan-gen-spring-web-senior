@@ -17,7 +17,7 @@
 	Profiles:-- 
 	<br>
 	<c:forEach items="${fileNames}" var="f">
-		<img src="images/${customer.customerId}/${f}" height="100px" width="100px" /><br> 
+		<img src="resources/images/${customer.customerId}/${f}" height="100px" width="100px" /><br> 
 	
 	</c:forEach>
 	
